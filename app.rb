@@ -71,14 +71,6 @@ post '/visit' do
 end
 
 get '/showusers' do
-	@data_table = ""
-	db = get_db
-	db.execute 'select * from Users' do |row|
-		@data_table += "<b>Name:</b> #{row['username']}; 
-						<b>Phone:</b> #{row['phone']}; 
-						<b>Date:</b> #{row['datestamp']}; 
-						<b>Barber:</b> #{row['barber']};
-						<b>Color:</b> #{row['color']}<br/>"
-	end
+	
 	erb :showusers
 end
