@@ -23,6 +23,11 @@ def get_db
 	return db
 end
 
+before do
+	db = get_db
+	@barber_name = db.execute 'select * from Barbers'
+end
+
 configure do
 	db = get_db
 	db.execute 'CREATE TABLE IF NOT EXISTS
@@ -55,6 +60,8 @@ get '/about' do
 end
 
 get '/visit' do
+	# db = get_db
+	# @barber_name = db.execute 'select * from Barbers'
 	erb :visit
 end
 
@@ -99,3 +106,4 @@ get '/showusers' do
 	@results = db.execute 'select * from Users order by id desc' 
 	erb :showusers
 end
+ 
