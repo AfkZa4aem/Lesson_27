@@ -73,6 +73,6 @@ end
 get '/showusers' do
 	db = get_db
 	# execute data from db and save it to @results
-	@results = db.execute 'select *from Users order by id desc' 
+	@results = db.execute 'select * from Users order by id desc' 
 	erb :showusers
 end
